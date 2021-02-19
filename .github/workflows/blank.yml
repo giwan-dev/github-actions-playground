@@ -25,4 +25,4 @@ jobs:
       - name: TEST
         env:
           REPOSITORY_NAME: ${{ github.repository }}
-        run: echo "${REPOSITORY_NAME#${{ github.repository_owner }}}"  
+        run: echo "${REPOSITORY_NAME#${{ github.repository_owner }}/}"  
