@@ -28,4 +28,4 @@ jobs:
       - name: TEST
         run: |
           FOO="${${{ github.repository }}#github-actions-}"
-          echo FOO
+          echo $FOO
