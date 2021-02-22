@@ -23,6 +23,4 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: TEST
-        env:
-          REPOSITORY_NAME: ${{ github.repository }}
-        run: echo "${REPOSITORY_NAME#${{ github.repository_owner }}/}"  
+        uses: docker://zprime0920/github-action
