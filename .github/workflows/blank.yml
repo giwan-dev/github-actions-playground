@@ -23,4 +23,4 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: TEST
-        uses: docker://ghcr.io/zprime0920/hello_docker
+        uses: docker://ghcr.io/zprime0920/hello_docker:latest
