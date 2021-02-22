@@ -22,10 +22,5 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Docker Login
-        uses: azure/docker-login@v1
-        with:
-          username: zprime0920
-          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: TEST
-        uses: docker://zprime0920/github-action
+        uses: docker://ghcr.io/zprime0920/hello_docker
