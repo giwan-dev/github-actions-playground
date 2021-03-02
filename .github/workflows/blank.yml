@@ -22,16 +22,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@master
       - name: Create Release Notes
         uses: docker://decathlon/release-notes-generator-action:3.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OUTPUT_FOLDER: temp_release_notes
           FILENAME_PREFIX: milestone_
       - name: list
         run: |
           MILESTONE_NUMBER=$(cat $GITHUB_EVENT_PATH | jq -r '.milestone.number')
-          cat temp_release_notes/milestone_$MILESTONE_NUMBER.md
+          cat milestone_$MILESTONE_NUMBER.md
         
         
