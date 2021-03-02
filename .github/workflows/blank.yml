@@ -30,6 +30,6 @@ jobs:
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
       - name: list
-        run: ls -al
+        run: cat temp_release_notes/release_file.md
         
         
