@@ -24,12 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Create Release Notes
-        uses: docker://decathlon/release-notes-generator-action:2.0.1
+        uses: docker://decathlon/release-notes-generator-action:3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OUTPUT_FOLDER: temp_release_notes
           USE_MILESTONE_TITLE: "true"
       - name: list
-        run: cat temp_release_notes/release_file.md
+        run: |
+          echo ${{ github.milestone.number }}
         
         
