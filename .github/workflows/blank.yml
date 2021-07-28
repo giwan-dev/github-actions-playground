@@ -5,14 +5,16 @@ name: CI
 # Controls when the action will run. 
 on:
 #   # Triggers the workflow on push or pull request events but only for the main branch
-#   push:
-#     branches: [ main ]
+  push:
+    branches: [ main ]
 #   pull_request:
 #     branches: [ main ]
 
-  milestone:
-    types: [closed]
-  
+#   milestone:
+#     types: [closed]
+env:
+  SOME_TRUE_VALUE: 'true'
+  SOME_FALSE_VALUE: 'false'
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,14 +24,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Create Release Notes
-        uses: docker://decathlon/release-notes-generator-action:3.1.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FILENAME_PREFIX: milestone_
-      - name: list
-        run: |
-          MILESTONE_NUMBER=$(cat $GITHUB_EVENT_PATH | jq -r '.milestone.number')
-          cat milestone_$MILESTONE_NUMBER.md
+      - name: true value
+        if: ${{ SOME_TRUE_VALUE }}
+        run: echo "hello world"
+      - name: false value
+        if: ${{ SOME_FALSE_VALUE }}
+        run: echo "hello world"
+
         
         
