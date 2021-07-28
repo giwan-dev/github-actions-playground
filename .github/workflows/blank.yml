@@ -25,10 +25,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: true value
-        if: ${{ SOME_TRUE_VALUE }}
+        if: ${{ env.SOME_TRUE_VALUE }}
         run: echo "hello world"
       - name: false value
-        if: ${{ SOME_FALSE_VALUE }}
+        if: ${{ env.SOME_FALSE_VALUE }}
         run: echo "hello world"
 
         
